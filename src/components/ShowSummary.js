@@ -13,12 +13,19 @@ function ShowSummary(props) {
         console.log(error);
       });
   }, []);
+  
+  const clickHandler = (event) => {
+    console.log("clicked");
+    console.log(event.target.value);
+    
+    window.location="/TicketForm";
+  };
 
   return (
     <div>
       <h1>Show Summary</h1>
       <p>{summary}</p>
-      <button>Book Ticket</button>
+      <button onClick={clickHandler}>Book Ticket</button>
     </div>
   );
 }
