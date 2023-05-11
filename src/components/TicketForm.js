@@ -1,10 +1,13 @@
 import { useState } from "react";
 
+import './TicketForm.css';
+
 function TicketForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-
+    
     const clickHandler = (event) => {
+      event.preventDefault();
         console.log("clicked");
         console.log(event.target.value);
         localStorage.setItem("name",name);
@@ -22,13 +25,26 @@ function TicketForm() {
     
     return (
         <center>
-        <div>
-            <h1>TicketBooking</h1>
-            <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
-            <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
-            <br></br>
-            <button onClick={clickHandler}>BookTicket</button>
-        </div>
+         <div className="ticket-form-container">
+        <h1>TicketBooking</h1>
+        <form method="post" onSubmit={clickHandler} >
+        <input required
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={handleNameChange}
+        />
+        <input required
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        
+        <br />
+        <button type="submit" >BookTicket</button>
+        </form>
+      </div>
         </center>
     );
 }

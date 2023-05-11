@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './ShowSummary.css';
 
 function ShowSummary(props) {
   const [summary, setSummary] = useState(localStorage.getItem("summary"));
@@ -22,12 +23,12 @@ function ShowSummary(props) {
   };
 
   return (
-    <div>
+    <div className="summary-container">
       <h1>Show Summary</h1>
   
-      <p>{summary}</p>
+      <p className="summary-text">{summary}</p>
 
-      <button onClick={clickHandler}>Book Ticket</button>
+      <button className="book-button" onClick={clickHandler}>Book Ticket</button>
     </div>
   );
 }
