@@ -24,7 +24,9 @@ function ShowSummary(props) {
   return (
     <div>
       <h1>Show Summary</h1>
+  
       <p>{summary}</p>
+
       <button onClick={clickHandler}>Book Ticket</button>
     </div>
   );
